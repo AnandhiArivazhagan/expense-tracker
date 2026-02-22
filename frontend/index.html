@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Smart Expense Tracker</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="money-rain"></div>
+<header class="main-header">
+  <h1>💰 Smart Expense Tracker</h1>
+  <p>Track Smart. Spend Smart. Save Smart.</p>
+</header>
+<nav class="navbar">
+  <a href="index.html">Dashboard</a>
+  <a href="add.html">Add Expense</a>
+  <a href="analytics.html">Analytics</a>
+</nav>
+
+<div class="container">
+
+  <div class="glass-card">
+    <h2>Total Expenses</h2>
+    <h1 id="totalAmount">₹0</h1>
+  </div>
+
+  <div class="glass-card">
+    <h3>Online Paid</h3>
+    <p id="onlineTotal">₹0</p>
+    <h3>Offline Paid</h3>
+    <p id="offlineTotal">₹0</p>
+  </div>
+
+  <div class="glass-card">
+    <h3>Monthly Income</h3>
+    <input type="number" id="incomeInput" placeholder="Enter monthly income">
+    <button onclick="saveIncome()">Save Income</button>
+    <p id="savings"></p>
+  </div>
+
+  <div class="glass-card">
+    <h3>Search Expense</h3>
+    <input type="text" id="searchInput" placeholder="Search...">
+  </div>
+
+  <div class="glass-card">
+    <h3>Expenses List</h3>
+    <ul id="expenseList"></ul>
+  </div>
+    <div>
+        <button onclick="downloadCSV()">⬇ Download CSV</button>
+    </div>
+  <div class="quote">
+    "Track your money before it tracks you."
+  </div>
+
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

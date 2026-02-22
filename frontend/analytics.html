@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Analytics</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<div class="money-rain"></div>
+<header class="main-header">
+  <h1>💰 Smart Expense Tracker</h1>
+  <p>Track Smart. Spend Smart. Save Smart.</p>
+</header>
+
+<nav class="navbar">
+  <a href="index.html">Dashboard</a>
+  <a href="add.html">Add Expense</a>
+  <a href="analytics.html">Analytics</a>
+</nav>
+
+<div class="container">
+  <div class="glass-card">
+    <canvas id="barChart"></canvas>
+  </div>
+
+  <div class="glass-card">
+    <canvas id="pieChart"></canvas>
+  </div>
+
+  <div class="glass-card" id="insights"></div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
