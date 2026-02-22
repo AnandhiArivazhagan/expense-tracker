@@ -8,7 +8,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-mongoose.connect("")
+mongoose.connect("mongodb+srv://Anandhi:anandhi_2005@cluster0.favzmu6.mongodb.net/expenseDB?appName=Cluster0")
   .then(() => console.log("Connected to MongoDB Atlas"))
   .catch(err => console.log(err));
 
@@ -49,5 +49,5 @@ app.delete("/expenses/:id", async (req, res) => {
   res.json({ message: "Expense deleted" });
 });
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log("Server running on port", PORT));
