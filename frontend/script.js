@@ -1,7 +1,7 @@
 /* ===============================
    BACKEND API URL
 =================================*/
-const API_URL = "http://localhost:3000/expenses";
+const API_URL = "https://expense-tracker-backend-o2vo.onrender.com/expenses";
 
 /* ===============================
    GLOBAL DATA
