@@ -1,10 +1,10 @@
 :root {
-  --primary: #6c63ff;
-  --secondary: #00c9a7;
-  --accent: #ff6b6b;
-  --yellow: #ffc75f;
+  --primary: #00b86b;
+  --primary-light: #00e676;
+  --accent: #6c63ff;
+  --danger: #ff5252;
   --soft-bg: rgba(255,255,255,0.75);
-  --glass-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+  --card-shadow: 0 8px 30px rgba(0,0,0,0.08);
 }
 
 /* GLOBAL RESET */
@@ -16,45 +16,45 @@
 }
 
 body {
-  background: linear-gradient(135deg, #6c63ff, #00c9a7);
-  min-height: 100vh;
+  background: linear-gradient(135deg, #f9fffb, #eef7ff);
   overflow-x: hidden;
   animation: fadeIn 0.6s ease-in;
+  position: relative;
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(15px); }
+  from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
 /* HEADER */
 .main-header {
   text-align: center;
-  padding: 35px 20px;
-  background: rgba(255,255,255,0.15);
-  backdrop-filter: blur(20px);
-  color: white;
+  padding: 30px 20px;
+  background: var(--soft-bg);
+  backdrop-filter: blur(15px);
+  box-shadow: var(--card-shadow);
 }
 
 .main-header h1 {
-  font-size: 30px;
+  font-size: 28px;
   font-weight: 700;
-  letter-spacing: 1px;
+  color: var(--primary);
 }
 
 .main-header p {
-  opacity: 0.8;
-  margin-top: 5px;
+  opacity: 0.6;
+  margin-top: 6px;
 }
 
 /* NAVBAR */
 .navbar {
   display: flex;
   justify-content: center;
-  gap: 30px;
+  gap: 35px;
   padding: 18px;
-  background: rgba(255,255,255,0.2);
-  backdrop-filter: blur(15px);
+  background: white;
+  box-shadow: var(--card-shadow);
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -63,44 +63,43 @@ body {
 .navbar a {
   text-decoration: none;
   font-weight: 600;
-  color: white;
-  padding: 10px 22px;
-  border-radius: 30px;
+  color: #444;
+  padding: 8px 20px;
+  border-radius: 25px;
   transition: 0.3s ease;
 }
 
 .navbar a:hover {
-  background: white;
-  color: var(--primary);
-  box-shadow: 0 0 15px rgba(255,255,255,0.6);
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  color: white;
 }
 
 /* CONTAINER */
 .container {
-  max-width: 1200px;
+  max-width: 1100px;
   margin: auto;
   padding: 30px 20px;
 }
 
-/* GLASS CARD */
+/* GLASS CARDS */
 .glass-card {
   background: var(--soft-bg);
-  backdrop-filter: blur(25px);
-  border-radius: 20px;
+  backdrop-filter: blur(18px);
+  border-radius: 18px;
   padding: 25px;
-  margin-bottom: 30px;
-  box-shadow: var(--glass-shadow);
+  margin-bottom: 25px;
+  box-shadow: var(--card-shadow);
   transition: 0.3s ease;
 }
 
 .glass-card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-4px);
 }
 
-/* DASHBOARD TOTAL CARD */
+/* DASHBOARD TOTAL */
 #totalAmount {
-  font-size: 42px;
-  font-weight: 800;
+  font-size: 38px;
+  font-weight: 700;
   color: var(--primary);
 }
 
@@ -110,55 +109,52 @@ input, select {
   padding: 14px;
   margin: 12px 0;
   border-radius: 12px;
-  border: none;
-  outline: none;
-  background: #f3f3f3;
+  border: 1px solid #e0e0e0;
   transition: 0.3s ease;
 }
 
 input:focus, select:focus {
-  background: white;
-  box-shadow: 0 0 10px var(--secondary);
+  border-color: var(--primary);
+  box-shadow: 0 0 10px rgba(0,184,107,0.3);
+  outline: none;
 }
 
 /* BUTTON */
 button {
   padding: 14px;
   width: 100%;
-  border-radius: 30px;
+  border-radius: 14px;
   border: none;
   font-weight: 600;
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
   color: white;
   cursor: pointer;
   transition: 0.3s ease;
 }
 
 button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+  transform: scale(1.03);
 }
 
 /* EXPENSE LIST */
 ul {
   list-style: none;
-  padding: 0;
 }
 
 li {
   background: white;
-  padding: 16px;
-  border-radius: 16px;
+  padding: 14px;
+  border-radius: 14px;
   margin-bottom: 12px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  box-shadow: 0 5px 18px rgba(0,0,0,0.05);
   transition: 0.3s ease;
 }
 
 li:hover {
-  background: linear-gradient(135deg, #f8f9ff, #e0f7f4);
-  transform: translateX(5px);
+  transform: translateX(4px);
 }
 
 /* ACTION BUTTONS */
@@ -169,114 +165,87 @@ li:hover {
 
 .edit-btn,
 .delete-btn {
-  width: 38px;
-  height: 38px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   border: none;
   cursor: pointer;
-  font-size: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   transition: 0.3s ease;
 }
 
 .edit-btn {
-  background: var(--yellow);
+  background: #e3f2fd;
 }
 
 .edit-btn:hover {
-  transform: scale(1.1);
-}
-
-.delete-btn {
   background: var(--accent);
   color: white;
 }
 
+.delete-btn {
+  background: #ffebee;
+}
+
 .delete-btn:hover {
-  transform: scale(1.1);
-}
-
-/* ANALYTICS SECTION */
-.analytics-container {
-  display: flex;
-  gap: 30px;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-.analytics-container canvas {
-  flex: 1;
-  min-width: 320px;
-  background: white;
-  padding: 20px;
-  border-radius: 20px;
-  box-shadow: var(--glass-shadow);
-}
-
-/* QUOTE */
-.quote {
-  text-align: center;
-  font-style: italic;
-  margin-top: 25px;
+  background: var(--danger);
   color: white;
-  opacity: 0.9;
 }
 
-/* RESPONSIVE */
-@media(max-width:768px){
-  .analytics-container {
-    flex-direction: column;
-  }
+/* ============================ */
+/* ONLY ANALYTICS SIDE BY SIDE */
+/* ============================ */
 
-  #totalAmount {
-    font-size: 32px;
-  }
-}
-/* ============================= */
-/* ANALYTICS PAGE LAYOUT UPDATE */
-/* ============================= */
-
-/* Make first two cards side-by-side */
-.container {
+.container:has(#barChart) {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 30px;
+  gap: 25px;
 }
 
-/* Make insights full width */
-.container .glass-card:nth-child(3) {
+.container:has(#barChart) .glass-card:nth-child(3) {
   grid-column: span 2;
 }
 
-/* Chart styling */
-.container canvas {
-  width: 100% !important;
-  height: 350px !important;
-}
-
-/* Add colorful card effect */
-.container .glass-card:nth-child(1) {
-  background: linear-gradient(135deg, #ffffff, #f3e8ff);
-}
-
-.container .glass-card:nth-child(2) {
-  background: linear-gradient(135deg, #ffffff, #e0f7fa);
-}
-
-.container .glass-card:nth-child(3) {
-  background: linear-gradient(135deg, #ffffff, #fff4e6);
-}
-
-/* Responsive: Stack on mobile */
+/* Responsive */
 @media (max-width: 768px) {
-  .container {
+  .container:has(#barChart) {
     grid-template-columns: 1fr;
   }
 
-  .container .glass-card:nth-child(3) {
+  .container:has(#barChart) .glass-card:nth-child(3) {
     grid-column: span 1;
+  }
+
+  #totalAmount {
+    font-size: 30px;
+  }
+}
+
+/* MONEY RAIN (UNCHANGED) */
+.money-rain {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+.money {
+  position: absolute;
+  top: -50px;
+  opacity: 0.8;
+  animation: smoothFall linear forwards;
+}
+
+@keyframes smoothFall {
+  0% {
+    transform: translateY(-50px) rotate(0deg);
+    opacity: 0;
+  }
+  20% { opacity: 0.8; }
+  100% {
+    transform: translateY(110vh) rotate(360deg);
+    opacity: 0;
   }
 }
