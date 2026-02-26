@@ -1,0 +1,284 @@
+:root {
+  --bg-dark: #0f172a;
+  --card-dark: #1e293b;
+  --accent: #00f5a0;
+  --accent-blue: #00d9f5;
+  --text-light: #e2e8f0;
+  --text-muted: #94a3b8;
+  --danger: #ff4d4d;
+}
+
+/* GLOBAL */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  color: var(--text-light);
+  overflow-x: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* center all content horizontally */
+}
+
+/* ensure react root is full width but centered content inside */
+#root {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* HEADER */
+.main-header {
+  text-align: center;
+  padding: 50px 20px 40px;
+  background: rgba(30, 41, 59, 0.6);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 18px 18px 0 0;
+  margin: 20px;
+}
+
+.main-header h1 {
+  font-size: 42px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-blue));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 8px;
+}
+
+.main-header p {
+  color: var(--text-muted);
+  font-size: 15px;
+  letter-spacing: 0.5px;
+  font-weight: 400;
+  margin: 0;
+}
+
+/* NAVBAR */
+.navbar {
+  display: flex;
+  justify-content: center;
+  gap: 35px;
+  padding: 20px;
+  background: rgba(30, 41, 59, 0.6);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-top: none;
+  border-radius: 0 0 18px 18px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  margin: 0 20px 20px;
+}
+
+/* buttons used for navigation in React version */
+.navbar button {
+  all: unset;
+  text-align: center;
+  font-weight: 600;
+  color: var(--text-muted);
+  padding: 8px 18px;
+  border-radius: 25px;
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+
+.navbar button:hover,
+.navbar button.active {
+  color: white;
+  background: linear-gradient(135deg, var(--accent), var(--accent-blue));
+}
+
+.navbar a {
+  text-decoration: none;
+  font-weight: 600;
+  color: var(--text-muted);
+  padding: 8px 18px;
+  border-radius: 25px;
+  transition: 0.3s ease;
+}
+
+.navbar a:hover {
+  color: white;
+  background: linear-gradient(135deg, var(--accent), var(--accent-blue));
+}
+
+/* CONTAINER */
+.container {
+  width: 90%;          /* take most of viewport width */
+  max-width: 1200px;   /* but cap it to avoid being too wide */
+  margin: auto;
+  padding: 30px 20px;
+}
+
+/* center cards and limit width on pages that are not analytics */
+.container:not(:has(#barChart)) .glass-card {
+  max-width: 700px;
+  margin: 0 auto 25px;
+}
+
+/* CARDS */
+.glass-card {
+  background: var(--card-dark);
+  border-radius: 18px;
+  padding: 25px;
+  margin-bottom: 25px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  transition: 0.3s ease;
+}
+
+.glass-card:hover {
+  transform: translateY(-5px);
+}
+
+/* TOTAL AMOUNT */
+#totalAmount {
+  font-size: 42px;
+  font-weight: 800;
+  color: var(--accent);
+}
+
+/* INPUTS */
+input, select {
+  width: 100%;
+  padding: 14px;
+  margin: 12px 0;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: #0f172a;
+  color: white;
+}
+
+input:focus, select:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+/* BUTTON */
+button {
+  padding: 14px;
+  width: 100%;
+  border-radius: 25px;
+  border: none;
+  font-weight: 600;
+  background: linear-gradient(135deg, var(--accent), var(--accent-blue));
+  color: black;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+/* EXPENSE LIST */
+ul {
+  list-style: none;
+}
+
+li {
+  background: #0f172a;
+  padding: 14px;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+li:hover {
+  border-color: var(--accent);
+}
+
+/* ACTION BUTTONS */
+.action-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.edit-btn {
+  background: var(--accent-blue);
+  color: black;
+}
+
+.delete-btn {
+  background: var(--danger);
+  color: white;
+}
+
+.edit-btn, .delete-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+}
+
+/* ========================= */
+/* ANALYTICS SIDE BY SIDE */
+/* ========================= */
+
+.container:has(#barChart) {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+}
+
+.container:has(#barChart) .glass-card:nth-child(3) {
+  grid-column: span 2;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .container:has(#barChart) {
+    grid-template-columns: 1fr;
+  }
+
+  .container:has(#barChart) .glass-card:nth-child(3) {
+    grid-column: span 1;
+  }
+
+  #totalAmount {
+    font-size: 30px;
+  }
+}
+
+/* MONEY RAIN (UNCHANGED) */
+.money-rain {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+.money {
+  position: absolute;
+  top: -50px;
+  opacity: 0.8;
+  animation: smoothFall linear forwards;
+}
+
+@keyframes smoothFall {
+  0% {
+    transform: translateY(-50px) rotate(0deg);
+    opacity: 0;
+  }
+  20% { opacity: 0.8; }
+  100% {
+    transform: translateY(110vh) rotate(360deg);
+    opacity: 0;
+  }
+}
