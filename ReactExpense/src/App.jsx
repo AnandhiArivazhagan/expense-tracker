@@ -295,7 +295,6 @@ function App() {
             <h2>Total Expenses</h2>
             <h1 id="totalAmount">₹{total}</h1>
           </div>
-
           <div className="glass-card">
             <h3>Online Paid</h3>
             <p id="onlineTotal">₹{onlineTotal}</p>
