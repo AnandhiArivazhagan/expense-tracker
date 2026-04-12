@@ -55,9 +55,7 @@ async function addExpense() {
   }
 }
 
-/* ===============================
-   DELETE EXPENSE
-=================================*/
+
 async function deleteExpense(id) {
   try {
     await fetch(`${API_URL}/${id}`, { method: "DELETE" });
